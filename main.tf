@@ -26,7 +26,7 @@ module "jenkins" {
   enable_public_ip_address  = true
   user_data_install_jenkins = templatefile("./jenkins-runner-script/jenkins-installer.sh", {})
 }
-/*
+
 module "lb_target_group" {
   source                   = "./load-balancer-target-group"
   lb_target_group_name     = "jenkins-lb-target-group"
@@ -35,7 +35,7 @@ module "lb_target_group" {
   vpc_id                   = module.networking.dev_proj_1_vpc_id
   ec2_instance_id          = module.jenkins.jenkins_ec2_instance_ip
 }
-
+/*
 module "alb" {
   source                    = "./load-balancer"
   lb_name                   = "dev-proj-1-alb"
