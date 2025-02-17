@@ -35,7 +35,7 @@ module "lb_target_group" {
   vpc_id                   = module.networking.dev_proj_1_vpc_id
   ec2_instance_id          = module.jenkins.jenkins_ec2_instance_ip
 }
-/*
+
 module "alb" {
   source                    = "./load-balancer"
   lb_name                   = "dev-proj-1-alb"
@@ -57,14 +57,13 @@ module "alb" {
 
 module "hosted_zone" {
   source          = "./hosted-zone"
-  domain_name     = "jenkins.jhooq.org"
+  domain_name     = "jenkinsdev.apidecateca.com"
   aws_lb_dns_name = module.alb.aws_lb_dns_name
   aws_lb_zone_id  = module.alb.aws_lb_zone_id
 }
 
 module "aws_ceritification_manager" {
   source         = "./certificate-manager"
-  domain_name    = "jenkins.jhooq.org"
+  domain_name    = "jenkinsdev.apidecateca.com"
   hosted_zone_id = module.hosted_zone.hosted_zone_id
 }
-*/
